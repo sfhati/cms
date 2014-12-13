@@ -18,7 +18,7 @@ define('SITE_DOMAIN','localhost/sfhati/');
 define('SITE_PATH', dirname( __FILE__ ) . DIRECTORY_SEPARATOR);
 define('SITE_IP', $_SERVER['SERVER_ADDR']);
 define('QUERY_STRING', $_SERVER['QUERY_STRING']);
-define('SITE_LINK', 'http://' . $_SERVER['HTTP_HOST'] . '/sfhati/');
+define('SITE_LINK', 'http://' . SITE_DOMAIN );
 
 define('TEMPLATE_FOLDER', 'template');
 define('UPLOADED_FOLDER', 'uploaded');
