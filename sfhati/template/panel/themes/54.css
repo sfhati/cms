@@ -1,0 +1,52 @@
+ 
+#panel ,.tab ul.login li.right,.tab ul.login li.left,.tab ul.login li,div#color_selector
+,#accn .ui-accordion-header,#accn .ui-state-active,#accn .ui-widget-header 
+,#designbodywidget,#themeRoller input, #themeRoller select,#inline_themeroller,
+#themeRoller .ui-tabs-selected.ui-state-active,#Sfhati_panel,.sfhatiPanel,.Sfhati-button,#mini
+
+{
+    color: #ffd280;
+    background-color: #805200;
+}
+
+#box_DX_3 .ui-slider-handle,#panel h1, #sfhati_widget h1,#Sfhati_panel,
+.sfhatiPanelBox:hover,.SfhatiFixClickimg,#handDrag:hover{
+    border-color: 1px solid #fff6e6;
+}
+#Sfhati_panel{
+    box-shadow: 4px 5px 7px #fff6e6;
+}
+#box_DX_3 .ui-slider-horizontal{
+   background: #ffd280; 
+}
+.boxcoption a,#panel a ,#sfhati_widget a,#accn a:link,#themeRoller a{    
+   color: #ffe8bf !important;
+}
+.bordercpanel{
+    border:2px solid #ffe8bf !important;
+}
+.colorcpanel,#panel a:hover{
+color:#fff6e6 !important;
+    }
+     
+#panel{ 
+background-image: url(http://server.sfhati.com/uploaded/element/shines/shine_037.png) !important;
+background-repeat: repeat-x;
+}
+
+.boxcoption,.heapBox,#accn .ui-widget-content,#themeRoller .ui-state-active,
+#themeRoller .theme-group .theme-group-header.state-active,
+#themeRoller .theme-group .theme-group-content,.buttonTheme{
+    background-color: #402900 !important;
+    color:#ffd280 !important;
+}
+.boxcoption a:hover,.heapBox a:hover,#accn .ui-widget-content a:hover,#themeRoller .ui-state-active a:hover,
+#themeRoller .theme-group .theme-group-header.state-active a:hover,
+#themeRoller .theme-group .theme-group-content a:hover,.buttonTheme a:hover{
+    background-color: #402900 !important;
+    color:#ffd280 !important;
+}
+
+#accn .ui-widget-content,#accn .ui-state-active,#accn .ui-state-active,#accn .ui-widget-header,#accn .ui-state-default{
+background-image:none !important;
+}

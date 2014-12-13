@@ -1,0 +1,162 @@
+/* 
+    Document   : sfhatieditortext
+    Created on : 03/07/2012, 01:33:18 م
+    Author     : basssam
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+
+.Sfhati-button,#handDrag{
+    width: 18px; height: 18px; overflow: hidden; cursor: pointer;   float: left; margin-top: 2px;    
+    background-image: url(SfhatiorIcons.png);
+opacity: 0.70;
+border: 1px solid rgba(255, 255, 255, 0.27);    
+}
+.Sfhati-button:hover {
+opacity: 1;
+border: 1px solid rgba(255, 255, 255, 0.54);
+}
+.hilited{
+    color:red;
+}
+#Sfhati_panel{
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 4px 5px 7px #333333;
+    clear: both;
+    position: absolute;
+    width: 600px;
+    z-index: 99;
+}
+.sfhatiPanelBox{
+    float: left;
+    height: 70px;
+    margin: 5px;
+    overflow: hidden;
+    width: 70px;
+    cursor: pointer;
+}
+.sfhatiPanelBox p{
+    font-size: 14px;
+    height: 70px;
+    position: relative;
+    top: -70px;
+}
+.sfhatiPanel{
+    display: none;
+    width: 600px;
+    left: 0px;
+    top: -28px;
+    position: relative;
+}
+.SfhatiFixClick{
+    height: 70px;
+    position: relative;
+    top: 70px;
+    width: 70px;
+    z-index: 2;
+        cursor: pointer;
+border: 1px rgba(255, 255, 255, 0.37) solid;
+background-color: rgba(255, 255, 255, 0.38);        
+}
+
+.SfhatiFixClickPanel{
+    left: 0;
+    position: absolute;
+    top: 22px;
+    width: 600px;
+    z-index: 1;
+}
+#mainsfhatiPanel{
+    height: 83px;
+    overflow: hidden;
+    width: 600px;
+    display: none;
+}
+
+.colortable{
+    height: 83px;
+    width: 600px;
+}
+.Sfhati_HL {
+    background: #ffff00;
+    color: #000000;
+}
+#insertimage_sfhatiPanel img:hover 
+,#insertparagraph_sfhatiPanel img:hover 
+,#insertflv_sfhatiPanel img:hover 
+,#insertmp3_sfhatiPanel img:hover 
+,#insertswf_sfhatiPanel img:hover 
+,#createUploader_sfhatieditormp3:hover 
+,#createUploader_sfhatieditorflv:hover 
+,#createUploader_sfhatieditorswf:hover 
+,#createUploader_sfhatieditor:hover 
+{
+border: 1px rgba(255, 255, 255, 0.80) solid;    
+}
+#insertimage_sfhatiPanel img
+,#insertparagraph_sfhatiPanel img
+,#insertflv_sfhatiPanel img
+,#insertmp3_sfhatiPanel img
+,#insertswf_sfhatiPanel img
+,#createUploader_sfhatieditormp3
+,#createUploader_sfhatieditorflv
+,#createUploader_sfhatieditorswf
+,#createUploader_sfhatieditor
+{
+   cursor: pointer;
+    height: 70px;
+    margin: 3px;
+    position: relative;
+    width: 70px;
+    z-index: 2;
+    padding: 2px;
+border: 1px rgba(255, 255, 255, 0.37) solid;
+background-color: rgba(255, 255, 255, 0.38);    
+}
+
+#sfhatiEditorCaption{
+min-width: 72px;
+background: rgba(0, 0, 0, 0.63);
+color: white;
+position: absolute;
+bottom: 5px;
+z-index: 66666;
+border: rgba(44, 43, 43, 0.71) solid 2px;
+text-align: center;
+display: none;
+}
+
+.sfhatiPanel .next ,.sfhatiPanel .prev {
+ cursor: pointer;
+background-image: url(mCSB_buttons.png);
+ background-repeat: no-repeat; 
+opacity: 0.4;
+display: block;
+width: 18px;
+height: 18px;
+position: absolute;
+    right: 0;
+}
+.sfhatiPanel .next{
+    background-position: 0 -18px;
+  right: 6px;
+    top: 73px;
+}
+.sfhatiPanel .prev {
+
+background-position: 0 0;
+
+ right: 6px;
+    top: 40px;
+}
+.sfhatiPanel .next:hover, .sfhatiPanel .prev:hover {
+opacity: 1;
+}
+.sfhatisliderdiv {
+    top: 27px;
+}
+.colortable tr td {
+width: 15px;
+height: 7px;
+}

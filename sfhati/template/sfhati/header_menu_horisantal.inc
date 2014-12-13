@@ -1,0 +1,1 @@
+<li class="%current%"><a href="%url%" target="%linklabel%" class="menu_page_id_%id%">%page_name%</a></li>

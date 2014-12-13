@@ -1,0 +1,1 @@
+<ul id="header_menu_vertical" class="sidebarmenu">[menu:"header_menu_vertical"end menu]</ul>

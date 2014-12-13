@@ -1,0 +1,178 @@
+body {
+   font-family: tahoma;
+   font-size: 10px;
+   background-attachment: fixed;
+   background-position: top center;
+   background-color:#000000;
+   margin:0;padding:0;
+}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote{
+	margin:0;
+	padding:0;
+        list-style:none;
+}
+a{
+color:#fff;
+   text-decoration: none;
+}
+a:hover {
+   text-decoration: underline;
+}
+.lang{
+  position: relative;
+  top: 11px;
+  left:900px;
+  z-index: 5000;
+  display:inline-block;
+}
+.version{
+  position: relative;
+  top: -26px;
+  left:800px;
+  z-index: 5000;
+  font-size:smaller;
+  font-weight:bold;
+  display:inline-block;
+background-color: #B51213;
+padding-bottom: 1px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 1px;
+    border: RosyBrown 1px solid;
+    border-radius:5px;
+}
+ .box,.bxox {
+    margin-top: 10px;
+    color: #292929;
+    border: 1px solid #BABABA;
+    background-color: #fff;
+    padding: 10px;
+   margin: 10px;
+   -o-border-radius: 10px;
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 10px;
+    -webkit-box-shadow: 0px 3px 7px #adadad;
+    border-radius: 10px;
+    -moz-box-sizing: border-box;
+    -opera-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -khtml-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+   .box a,.bxox a {color:#333;}
+  .pointer{cursor: pointer;}
+
+       /**************counter pages************/
+
+div.pagination {
+padding: 3px;
+margin: 3px;
+text-align:center;
+
+}
+
+div.pagination a {
+padding: 2px 5px 2px 5px;color:#999;
+margin: 2px;
+text-decoration: none; /* no underline */
+border: 1px solid #ddd;
+}
+
+div.pagination a:hover{
+border-color:#999999;
+}
+div.pagination a.current {
+border: 1px solid #999999;
+font-weight: bold;
+}
+/****************************/
+
+.white-color{color:white;}
+.lt {
+	height: 173px; 
+           padding-bottom: 0;
+    padding-left: 4.5px;
+    padding-right: 4.5px;
+    padding-top: 0;
+    WIDTH: 82px; CURSOR: pointer; COLOR: #ffffff;TEXT-ALIGN: center
+}
+.lt:hover,.active {
+    color: #FFFFFF;
+    cursor: pointer;
+    height: 173px;
+    padding-bottom: 0;
+    padding-left: 4.5px;
+    padding-right: 4.5px;
+    padding-top: 0;
+    text-align: center;
+    WIDTH: 82px;
+}
+.dynamic-tab-pane-control.tab-pane {
+	position:	relative;
+}
+.dynamic-tab-pane-control .tab-row .tab {
+	width: 120px;
+	height: 16px;
+	position: relative;
+	top: 0;
+	display: inline;
+	float: left;
+	overflow: hidden;
+	cursor: pointer;
+	margin: 1px -1px 1px 2px;
+	padding: 2px 0px 0px 0px;
+	border: 0;
+	z-index: 1;
+	white-space: nowrap;
+	text-align: center;
+}
+.dynamic-tab-pane-control .tab-row .tab.selected {
+	width: 120px !important;
+	height: 18px !important;
+	background-repeat: no-repeat;
+	border-bottom-width:	0;
+	z-index: 3;
+	padding:	2px 0px 0px 0px;
+	margin: 1px -3px -3px 0px;
+	top: -2px;
+}
+.dynamic-tab-pane-control .tab-row .tab{
+	font:	11px Tahoma, Helvetica, sans-serif;
+	color: #333;
+}
+.dynamic-tab-pane-control .tab-page {
+	border: 1px solid rgb( 145, 155, 156 );
+	background: rgb( 240, 240, 235 );
+	z-index: 2;
+	position: relative;
+	top: -2px;
+	padding:	5px;
+	width: 99%;  /* stupid stupid stupid IE!!! */
+	float: left;
+}
+#color_change{
+  position: relative;
+  top: 20px;
+  left:900px;
+  z-index: 5000;
+  width:80px;
+}
+
+
+.color{
+  width:10px;
+  height: 10px;
+  float: left;
+  border: 1px #666666;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.red{ background-color:#FF0000;  }
+.blue{ background-color:#0F9CD2;  }
+.darkgreen{ background-color:#505748;  }
+.green{ background-color:#6FC212;  }
+.violet{ background-color:#9247BE;  }
+
+.img_folder{ width:100px;height:100px; }

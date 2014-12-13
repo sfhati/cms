@@ -1,0 +1,667 @@
+/*!
+ * jQuery contextMenu - Plugin for simple contextMenu handling
+ *
+ * Version: 1.5.18
+ *
+ * Authors: Rodney Rehm, Addy Osmani (patches for FF)
+ * Web: http://medialize.github.com/jQuery-contextMenu/
+ *
+ * Licensed under
+ *   MIT License http://www.opensource.org/licenses/mit-license
+ *   GPL v3 http://opensource.org/licenses/GPL-3.0
+ *
+ */
+.context-menu-list {
+    margin:0; 
+    padding:0;
+    
+    min-width: 120px;
+    max-width: 250px;
+    display: inline-block;
+    position: absolute;
+    list-style-type: none;
+    
+    border: 1px solid #DDD;
+    background: #EEE;
+    
+    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+       -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        -ms-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+         -o-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    z-index: 99999;
+}
+
+.context-menu-item {
+    padding: 2px 2px 2px 24px;
+    background-color: #EEE;
+    position: relative;
+    -webkit-user-select: none;
+       -moz-user-select: -moz-none;
+        -ms-user-select: none;
+            user-select: none;
+            color: #333;
+}
+
+.context-menu-separator {
+    padding-bottom:0;
+    border-top: 1px solid #DDD;
+}
+
+.context-menu-item > label {
+    -webkit-user-select: text;
+       -moz-user-select: text;
+        -ms-user-select: text;
+            user-select: text;	
+}
+
+.context-menu-item.hover {
+    cursor: pointer;
+    background-color: #39F;
+}
+
+.context-menu-item.disabled {
+    color: #666;
+}
+
+.context-menu-input.hover,
+.context-menu-item.disabled.hover {
+    cursor: default;
+    background-color: #EEE;
+}
+
+.context-menu-submenu:after {
+    content: "»";
+    color: #000;
+    position: absolute;
+    font-weight: bold;
+    top: 0;
+    right: 3px;
+    z-index: 1;
+}
+
+/* icons
+    #protip:
+    In case you want to use sprites for icons (which I would suggest you do) have a look at
+    http://css-tricks.com/13224-pseudo-spriting/ to get an idea of how to implement 
+    .context-menu-item.icon:before {}
+ */
+.context-menu-item.icon { min-height: 18px; background-repeat: no-repeat; background-position: 4px 2px; }
+.context-menu-item.icon-edit { background-image: url(images/page_white_edit.png); }
+.context-menu-item.icon-cut { background-image: url(images/cut.png); }
+.context-menu-item.icon-copy { background-image: url(images/page_white_copy.png); }
+.context-menu-item.icon-paste { background-image: url(images/page_white_paste.png); }
+.context-menu-item.icon-delete { background-image: url(images/page_white_delete.png); }
+.context-menu-item.icon-quit { background-image: url(images/door.png); }
+
+/* vertically align inside labels */
+.context-menu-input > label > * { vertical-align: top; }
+
+/* position checkboxes and radios as icons */
+.context-menu-input > label > input[type="checkbox"],
+.context-menu-input > label > input[type="radio"] {
+    margin-left: -17px;
+}
+.context-menu-input > label > span {
+    margin-left: 5px;
+}
+
+.context-menu-input > label,
+.context-menu-input > label > input[type="text"],
+.context-menu-input > label > textarea,
+.context-menu-input > label > select {
+    display: block;
+    width: 100%;
+    
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+         -o-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.context-menu-input > label > textarea {
+    height: 100px;
+}
+.context-menu-item > .context-menu-list {
+    display: none;
+    /* re-positioned by js */
+    right: -5px;
+    top: 5px;
+}
+
+.context-menu-item.hover > .context-menu-list {
+    display: block;
+}
+
+.context-menu-accesskey {
+    text-decoration: underline;
+}
+
+.icon-edit { background-image: url(page_white_edit.png); }
+.icon-cut { background-image: url(cut.png); }
+.icon-copy { background-image: url(page_white_copy.png); }
+.icon-paste { background-image: url(page_white_paste.png); }
+.icon-delete,.context-menu-item.icon-delete { background-image: url(page_white_delete.png); }
+.icon-quit { background-image: url(door.png); }
+.icon-check { background-image: url(checkBox_tick.png); }
+.icon-option { background-image: url(checkBox.png); }
+.icon-cssedit { background-image: url(css_edit.png); }
+.icon-codeedit { background-image: url(codeEdit.png); }
+.icon-bring_to_front  { background-image: url(bring_to_front.png); }
+.icon-send_to_back { background-image: url(send_to_back.png); }
+.icon-bring_forward  { background-image: url(bring_forward.png); }
+.icon-send_backward { background-image: url(send_backward.png); }
+.icon-control_panel { background-image: url(control_panel.png); }
+.icon-refresh { background-image: url(refresh.png); }
+.icon-boxwidth {background-image: url(boxwidth.png);}
+.icon-align {background-image: url(align.png);}
+.icon-perm {background-image: url(perm.png);}
+.icon-showin {background-image: url(showin.png);}
+.icon-postion {background-image: url(postion.png);}
+.icon-side {background-image: url(side.png);}
+.icon-selecttemplate {background-image: url(template_source.png);}
+.icon-loadoption {background-image: url(loadoption.png);}
+.icon-question {background-image: url(question.png);}
+
+
+
+
+
+/***mobile menu**/
+.navbar {
+  overflow: visible;  
+  width: 100%;
+}
+.navbar-inner {
+  min-height: 40px;
+  background-color: #2c2c2c;
+  background-image: -moz-linear-gradient(top, #333333, #222222);
+  background-image: -ms-linear-gradient(top, #333333, #222222);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#333333), to(#222222));
+  background-image: -webkit-linear-gradient(top, #333333, #222222);
+  background-image: -o-linear-gradient(top, #333333, #222222);
+  background-image: linear-gradient(top, #333333, #222222);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333', endColorstr='#222222', GradientType=0);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
+  -moz-box-shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
+  box-shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
+}
+.navbar .container {
+  width: auto;
+}
+.nav-collapse.collapse {
+  height: auto;
+}
+.navbar {
+  color: #999999;
+}
+.navbar .brand:hover {
+  text-decoration: none;
+}
+.navbar .brand {
+  float: left;
+  display: block;
+  padding: 8px 20px 12px;
+  margin-left: -20px;
+  font-size: 20px;
+  font-weight: 200;
+  line-height: 1;
+  color: #999999;
+}
+.navbar .navbar-text {
+  margin-bottom: 0;
+  line-height: 40px;
+}
+.navbar .navbar-link {
+  color: #999999;
+}
+.navbar .navbar-link:hover {
+  color: #ffffff;
+}
+.navbar .btn,
+.navbar .btn-group {
+  margin-top: 5px;
+}
+.navbar .btn-group .btn {
+  margin: 0;
+}
+.navbar-form {
+  margin-bottom: 0;
+}
+.navbar-form:before,
+.navbar-form:after {
+  display: table;
+  content: "";
+}
+.navbar-form:after {
+  clear: both;
+}
+.navbar-form input,
+.navbar-form select,
+.navbar-form .radio,
+.navbar-form .checkbox {
+  margin-top: 5px;
+}
+.navbar-form input,
+.navbar-form select {
+  display: inline-block;
+  margin-bottom: 0;
+}
+.navbar-form input[type="image"],
+.navbar-form input[type="checkbox"],
+.navbar-form input[type="radio"] {
+  margin-top: 3px;
+}
+.navbar-form .input-append,
+.navbar-form .input-prepend {
+  margin-top: 6px;
+  white-space: nowrap;
+}
+.navbar-form .input-append input,
+.navbar-form .input-prepend input {
+  margin-top: 0;
+}
+.navbar-search {
+  position: relative;
+  float: left;
+  margin-top: 6px;
+  margin-bottom: 0;
+  left: 10px;
+  z-index: 10;
+}
+.navbar-search .search-query {
+  padding: 4px 9px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 1;
+  color: #ffffff;
+  background-color: #626262;
+  border: 1px solid #151515;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0 rgba(255,255,255,.15);
+  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0 rgba(255,255,255,.15);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0 rgba(255,255,255,.15);
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+.navbar-search .search-query:-moz-placeholder {
+  color: #cccccc;
+}
+.navbar-search .search-query:-ms-input-placeholder {
+  color: #cccccc;
+}
+.navbar-search .search-query::-webkit-input-placeholder {
+  color: #cccccc;
+}
+.navbar-search .search-query:focus,
+.navbar-search .search-query.focused {
+  padding: 5px 10px;
+  color: #333333;
+  text-shadow: 0 1px 0 #ffffff;
+  background-color: #ffffff;
+  border: 0;
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+  outline: 0;
+}
+.navbar-fixed-top,
+.navbar-fixed-bottom {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  margin-bottom: 0;
+}
+.navbar-fixed-top .navbar-inner,
+.navbar-fixed-bottom .navbar-inner {
+  padding-left: 0;
+  padding-right: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+.navbar-fixed-top .container,
+.navbar-fixed-bottom .container {
+  width: 940px;
+}
+.navbar-fixed-top {
+  top: 0;
+}
+.navbar-fixed-bottom {
+  bottom: 0;
+}
+.navbar .nav {
+  position: relative;
+  left: 0;
+  display: block;
+  float: left;
+  margin: 0 10px 0 0;
+}
+.navbar .nav.pull-right {
+  float: right;
+}
+.navbar .nav > li {
+  display: block;
+  float: left;
+}
+.navbar .nav li a {
+  text-align:  [right_left];
+}
+.navbar .nav > li > a {
+  float: none;
+  padding: 9px 10px 11px;
+  line-height: 19px;
+  color: #999999;
+  text-decoration: none;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.navbar .btn {
+  display: inline-block;
+  padding: 4px 10px 4px;
+  margin: 5px 5px 6px;
+  line-height: 18px;
+}
+.navbar .btn-group {
+  margin: 0;
+  padding: 5px 5px 6px;
+}
+.navbar .nav  li > a:hover {
+  background-color: transparent;
+  color: #ffffff;
+  text-decoration: none;
+}
+.navbar .nav .active > a,
+.navbar .nav .active > a:hover {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #222222;
+}
+.navbar .divider-vertical {
+  height: 40px;
+  width: 1px;
+  margin: 0 9px;
+  overflow: hidden;
+  background-color: #222222;
+  border-right: 1px solid #333333;
+}
+.navbar .nav.pull-right {
+  margin-left: 10px;
+  margin-right: 0;
+}
+.navbar .btn-navbar {
+  display: block;
+  float: right;
+  padding: 7px 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  background-color: #2c2c2c;
+  background-image: -moz-linear-gradient(top, #333333, #222222);
+  background-image: -ms-linear-gradient(top, #333333, #222222);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#333333), to(#222222));
+  background-image: -webkit-linear-gradient(top, #333333, #222222);
+  background-image: -o-linear-gradient(top, #333333, #222222);
+  background-image: linear-gradient(top, #333333, #222222);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333', endColorstr='#222222', GradientType=0);
+  border-color: #222222 #222222 #000000;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.075);
+  -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.075);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.075);
+}
+.navbar .btn-navbar:hover,
+.navbar .btn-navbar:active,
+.navbar .btn-navbar.active,
+.navbar .btn-navbar.disabled,
+.navbar .btn-navbar[disabled] {
+  background-color: #222222;
+}
+.navbar .btn-navbar:active,
+.navbar .btn-navbar.active {
+  background-color: #080808 \9;
+}
+.navbar .btn-navbar .icon-bar {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background-color: #f5f5f5;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+}
+.btn-navbar .icon-bar + .icon-bar {
+  margin-top: 3px;
+}
+.navbar .dropdown-menu:before {
+  content: '';
+  display: inline-block;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #ccc;
+  border-bottom-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: -7px;
+  left: 9px;
+}
+.navbar .dropdown-menu:after {
+  content: '';
+  display: inline-block;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid #ffffff;
+  position: absolute;
+  top: -6px;
+  left: 10px;
+}
+.navbar-fixed-bottom .dropdown-menu:before {
+  border-top: 7px solid #ccc;
+  border-top-color: rgba(0, 0, 0, 0.2);
+  border-bottom: 0;
+  bottom: -7px;
+  top: auto;
+}
+.navbar-fixed-bottom .dropdown-menu:after {
+  border-top: 6px solid #ffffff;
+  border-bottom: 0;
+  bottom: -6px;
+  top: auto;
+}
+.navbar .nav li.dropdown .dropdown-toggle .caret,
+.navbar .nav li.dropdown.open .caret {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+.navbar .nav li.dropdown.active .caret {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.navbar .nav li.dropdown.open > .dropdown-toggle,
+.navbar .nav li.dropdown.active > .dropdown-toggle,
+.navbar .nav li.dropdown.open.active > .dropdown-toggle {
+  background-color: transparent;
+}
+.navbar .nav li.dropdown.active > .dropdown-toggle:hover {
+  color: #ffffff;
+}
+.navbar .pull-right .dropdown-menu,
+.navbar .dropdown-menu.pull-right {
+  left: auto;
+  right: 0;
+}
+.navbar .pull-right .dropdown-menu:before,
+.navbar .dropdown-menu.pull-right:before {
+  left: auto;
+  right: 12px;
+}
+.navbar .pull-right .dropdown-menu:after,
+.navbar .dropdown-menu.pull-right:after {
+  left: auto;
+  right: 13px;
+}
+.navbar-fixed-top,
+.navbar-fixed-bottom {
+  position: static;
+}
+.navbar-fixed-top {
+  margin-bottom: 18px;
+}
+.navbar-fixed-bottom {
+  margin-top: 18px;
+}
+.navbar-fixed-top .navbar-inner,
+.navbar-fixed-bottom .navbar-inner {
+  padding: 5px;
+}
+.navbar .container {
+  width: auto;
+  padding: 0;
+}
+.navbar .brand {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 0 0 0 -5px;
+}
+.nav-collapse {
+  clear: both;
+  display: none;
+}
+.nav-collapse .nav {
+  float: none;
+  margin: 0 0 9px;
+  list-style: none;
+  width: 100%;
+}
+.nav-collapse .nav ul{
+  float: none;
+  margin: 0 0 9px;
+  list-style: none;
+}
+.nav-collapse .nav ul{
+  margin: 0;
+}
+.nav-collapse .nav ul a{
+  font-size: 18px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding: 6px 20px;
+  display: block;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.nav-collapse .nav > li {
+  display: block;
+  float: none;
+  width: 100%;
+}
+.nav-collapse .nav > li > a {
+  font-size: 18px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin-bottom: 2px;
+}
+.nav-collapse .nav > .divider-vertical {
+  display: none;
+}
+.nav-collapse .nav .nav-header {
+  color: #999999;
+  text-shadow: none;
+}
+.nav-collapse .nav > li > a,
+.nav-collapse .dropdown-menu a {
+ 
+  font-weight: bold;
+  color: #999999;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+   display: block;
+}
+.nav-collapse .btn {
+  padding: 4px 10px 4px;
+  font-weight: normal;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.nav-collapse .dropdown-menu li + li a {
+  margin-bottom: 2px;
+}
+.nav-collapse .nav li a:hover,
+.nav-collapse .dropdown-menu a:hover {
+  background-color: #222222;
+}
+.nav-collapse.in .btn-group {
+  margin-top: 5px;
+  padding: 0;
+}
+.nav-collapse .dropdown-menu {
+  position: static;
+  top: auto;
+  left: auto;
+  float: none;
+  display: block;
+  max-width: none;
+  margin: 0 15px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.nav-collapse .dropdown-menu:before,
+.nav-collapse .dropdown-menu:after {
+  display: none;
+}
+.nav-collapse .dropdown-menu .divider {
+  display: none;
+}
+.nav-collapse .navbar-form,
+.nav-collapse .navbar-search {
+  float: none;
+  padding: 9px 15px;
+  margin: 9px 0;
+  border-top: 1px solid #222222;
+  border-bottom: 1px solid #222222;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.1);
+  -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.1);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.1);
+}
+.navbar .nav-collapse .nav.pull-right {
+  float: none;
+  margin-left: 0;
+}
+
+.navbar .btn-navbar {
+  display: block;
+}
+.navbar-static .navbar-inner {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/*current class for toogle*/
+.current-responsive{
+  color: #416e88 !important;
+  text-shadow: none !important;
+}    

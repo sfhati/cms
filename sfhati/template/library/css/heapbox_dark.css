@@ -1,0 +1,165 @@
+.heapBox
+{
+clear:both;
+display:table;
+line-height:27px;
+position:relative;
+margin-top: 5px;
+width: 214px;
+}
+
+.heapBox *
+{
+margin:0;
+padding:0;
+outline: none;
+}
+
+.heapBox.disabled .holder
+{
+color:#989898;
+}
+
+.heapBox.disabled .handler
+{
+background:url(heapbox_bg.png) repeat-x;
+}
+
+.heapBox a{
+text-decoration:none;
+color:#fff;
+}
+
+.heapBox .holder
+{
+width:185px;
+overflow:hidden;
+background:url(heapbox_bg.png) repeat-x;
+text-indent:20px;
+border:1px solid rgba(255, 255, 255, 0.25);
+height:27px;
+}
+
+.heapBox .handler
+{
+width:25px;
+background:url(heapbox_handler_bg.png) no-repeat;
+height:27px;
+border:1px solid rgba(255, 255, 255, 0.25);
+}
+
+.heapBox .holder,.heapBox .handler
+{
+float:[right_left];
+position:relative;
+z-index:10;
+}
+
+.heapBox div.heap
+{
+display:none;
+position: static;
+list-style-type:none;
+left:0;
+width:210px;
+top:29px;
+overflow:hidden;
+border:1px solid rgba(255, 255, 255, 0.25);
+border-top:none;
+}
+
+.heapBox .heap .heapOptions
+{
+display:block;
+overflow:hidden;
+z-index:20;
+position:relative;
+}
+
+.heapBox .heap a.sliderUp
+{
+display:block;
+width:100%;
+height:15px;
+background:#333 url(slider_arrow_up.png);
+background-repeat:no-repeat;
+background-position:center center;
+border-bottom:1px solid #111;
+position:absolute;
+top:0px;
+z-index:30;
+}
+
+.heapBox .heap a.sliderDown
+{
+display:block;
+width:100%;
+height:15px;
+background:#333 url(slider_arrow_down.png);
+background-repeat:no-repeat;
+background-position:center center;
+border-top:1px solid #111;
+position:absolute;
+bottom:0px;
+z-index:30;
+}
+
+.heapBox .heap .heapOptions .heapOption
+{
+z-index:20;
+position:relative;
+display:block;
+height:27px;
+border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.heapBox .heap .heapOptions .heapOption a{
+width:100%;
+display:block;
+background:url(heapbox_heapitem_bg.png) repeat-x;
+text-indent:20px;
+}
+
+.heapBox .heap .heapOptions .heapOption a:hover{
+background:url(heapbox_heapitem_hover_bg.png) repeat-x;
+}
+
+.heapBox .heap .heapOptions .heapOption a.selected{
+background:url(heapbox_heapitem_hover_bg.png) repeat-x;
+}
+
+.heapBox .heap .heapOptions .heapOption a.disabled{
+	color:#777;
+}
+
+.heapBox .heap .heapOptions .heapOption a.disabled:hover{
+	background:url(heapbox_heapitem_bg.png) repeat-x;
+}
+.heapOption > a,.holder > a {
+    height: 27px;
+    display: block;
+    padding-top: 3px;
+}
+.heapOption span,.holder span {    
+    font-size: 12px;
+    color: #fff;
+    display: block;
+    text-align: [right_left];
+    overflow: hidden;
+     padding-[right_left]: 10px;
+}
+.heapOption img ,.holder img{
+    border: 1px solid #999999;
+    height: 16px;
+       margin: 2px;
+    padding: 0;
+    width: 24px;
+    float: right;
+}
+#panel .heapOption p {
+    float: [right_left];
+    margin: 0;
+    width: 50%;
+      /* padding-right: 10px; */
+}
+.heapBox *{color:#fff;}

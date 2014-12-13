@@ -1,0 +1,124 @@
+/* 
+    Document   : pop_window
+    Created on : 10/02/2011, 04:39:55 ص
+    Author     : basssam
+    Description:
+        Purpose of the stylesheet follows.
+*/
+ 
+/* 
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+.qq-upload-list{ display:none;}
+
+#sfhati_widget{
+    width:670px;
+}
+/*tabs colors, texture*/
+#sfhati_widget #rollerTabsNav {font-size: 1em; border: 1px solid #222222/*borderColorHeader*/; background: #000000 url(../images/app/bg_tr_tabs.png) 0 26% repeat-x; color: #222222/*fcHeader*/; font-weight: bold !important; border-bottom: 0; margin: 0; list-style: none;width:693px;height:25px;}
+#sfhati_widget #rollerTabsNav .widget-header a { color: #222222/*fcHeader*/; }
+#sfhati_widget #rollerTabsNav li { float: left; border: 1px solid #000000/*borderColorDefault*/; background: #333333 url(../images/app/bg_tr_tabs_tab.png) 0 50% repeat-x; font-weight: normal/*fwDefault*/; color: #dddddd/*fcDefault*/ !important; }
+#sfhati_widget #rollerTabsNav li a { color: #dddddd/*fcDefault*/; text-decoration: none; }
+#sfhati_widget #rollerTabsNav li.state-hover { border: 1px solid #000000/*borderColorHover*/; background: #333333 url(../images/app/bg_tr_tabs_tab_hover.png) 0  50% repeat-x; font-weight: normal/*fwDefault*/; color: #ffffff/*fcHover*/ !important; }
+#sfhati_widget #rollerTabsNav li.state-hover a { color: #ffffff/*fcHover*/; text-decoration: none; }
+#sfhati_widget #rollerTabsNav li.ui-tabs-selected { border: 1px solid #111111/*borderColorActive*/; border-bottom: #000; background: #000 ; font-weight: normal/*fwDefault*/; color: #ffffff/*fcActive*/ !important; outline: none; }
+#sfhati_widget #rollerTabsNav li.ui-tabs-selected a { color: #ffffff/*fcActive*/; outline: none; text-decoration: none; }
+#sfhati_widget #rollerTabsNav li, #themeRoller #rollerTabsNav li.ui-tabs-selected {padding: 0.2em .3em;  }
+#rollerTabsNav { padding: .2em .2em 0 .2em;  position: relative;top:-32px; }
+#rollerTabsNav li { float: left; border-bottom: 0; margin-right: .1em; margin-bottom: 0; padding: 0; }
+#rollerTabsNav li.ui-tabs-selected { position: relative; z-index: 10; }
+#rollerTabsNav li a { display:block; text-decoration: none; padding: .4em .55em; margin:0; position: relative; }
+#rollerTabsNav li.ui-tabs-selected { padding-bottom: 1px; margin-bottom: -1px; }
+
+#inline_themeroller{ 
+border: 1px double #DDD;
+position: fixed;
+background: none repeat scroll 0% 0% #111;
+top: -10192px;
+right: 25px;
+padding: 7px 7px 5px 0;
+width: 220px;
+height: 400px;
+-moz-border-radius: 6px 6px 6px 6px;
+z-index: 9999999;
+cursor: move;
+opacity: 1;
+left: 566px;
+border-radius: 7px;
+overflow: hidden;
+}
+#window_x{
+    border:1px double #DDD;
+ display:none; position: fixed; background: none repeat scroll 0% 0% rgb(17, 17, 17); top: 92px; right: 25px; padding:15px 0 5px 0; width: 700px; height: 500px; -moz-border-radius: 6px 6px 6px 6px; z-index: 99999999; cursor: move; opacity: 1; left: 566px;
+border-top-color: #555555;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-top-style: solid;
+    border-top-width: 10px;
+}
+.closeTR{
+  font-family: Verdana,sans-serif; font-size: 10px; display: block; position: absolute; right: 10px; top: 16px; text-align: right; background: url(../images/app/icon_bookmarklet_close.gif) no-repeat scroll 0pt 2px transparent; width: 16px; height: 16px; color: rgb(255, 255, 255); text-decoration: none;
+}
+#ui-resizable-handlex{
+  background: url(../images/app/icon_bookmarklet_dragger.gif) no-repeat scroll 50% 50% transparent; border: medium none; height: 14px; bottom: -3px;
+}
+.sfhati-infocus{
+  border: 1px #CC0000 solid;
+  background: #FFFF99;
+}
+
+.sfhati-iframe {
+  background: none repeat scroll 0% 0% transparent;
+   overflow: hidden;
+   width: 256px;
+   height: 417px;
+   border: 0pt none;
+}
+
+
+/*color picker semple**/
+div.color_picker {
+  height: 12px;
+  width: 12px;
+  padding: 0 !important;
+  border: 2px solid #ccc;
+  background: url(arrow.gif) no-repeat -4px -4px;
+  cursor: pointer;
+  line-height: 16px;
+}
+
+div#color_selector {
+  width: 110px;
+  position: absolute;
+  border: 1px solid #fff; 
+  padding: 2px;
+  z-index:2147483647; 
+}
+  div#color_custom {width: 100%; float:left }
+  div#color_custom label {font-size: 12px; color: #fff; margin: 5px 2px; width: 25%}
+  div#color_custom input {margin: 5px 2px; padding: 0; font-size: 12px; border: 1px solid #fff; width: 65%; }
+
+div.color_swatch {
+  height: 12px;
+  width: 12px;
+  border: 1px solid #aaa;
+  margin: 2px;
+  float: left;
+  cursor: pointer;
+  line-height: 12px;
+}
+
+/**scroll design*/
+#sfhati_widgetload{
+    cursor: default;
+    height: 470px;
+    margin-top: -20px;
+    width: 700px;
+}
+
+.borderback{
+    border:1px #CC0000 solid;
+    opacity: 0.4;
+    min-height: 200px;
+}
