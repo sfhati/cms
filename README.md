@@ -17,14 +17,19 @@ Install
 4. upload sfhati.sql by import in phpmyadmin 
 5. edit conf.php file and set your database name and password 
 
-`
-#Domain name here
-define('SITE_DOMAIN','localhost/sfhati/');
 
-#database mysql
-    define('db_host', 'localhost');
-    define('db_name', 'sfhati');
-    define('db_user', 'root');
-    define('db_pass', '');
+    `#Domain name here`
 
-`
+    `define('SITE_DOMAIN','localhost/sfhati/');`
+
+***
+
+    `#database mysql`
+
+    `define('db_host', 'localhost');`
+
+    `define('db_name', 'sfhati');`
+
+    `define('db_user', 'root');`
+
+    `define('db_pass', '');`
