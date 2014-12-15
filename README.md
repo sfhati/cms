@@ -41,6 +41,6 @@ Note
 1. if you wont login to controlpanel goto http://localhost/sfhati/cms/sfhati/admin
 user name : admin 
 password : 123456
-2. if you dont see login area goto http://localhost/sfhati/cms/sfhati/?shng_tpl=login
+2. if you dont see login area goto http://localhost/sfhati/cms/sfhati/?chng_tpl=login
 or you can active .htaccess. 
 
