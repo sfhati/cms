@@ -6,7 +6,7 @@ set_time_limit('30');
 ini_set('memory_limit', '80M');
 date_default_timezone_set('Asia/Amman');
 
-define('SITE_DOMAIN','localhost/sfhati/');
+define('SITE_DOMAIN','localhost/sfhati/cms/sfhati/');
  
 #database mysql
     define('db_host', 'localhost');
