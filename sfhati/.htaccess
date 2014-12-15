@@ -5,16 +5,16 @@ RewriteBase /
 #RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
 #RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 
-RewriteRule ^page/([0-9]+)/(.*)$ http://localhost/sfhati/?id=$1
+RewriteRule ^page/([0-9]+)/(.*)$ http://localhost/sfhati/cms/sfhati/?id=$1
 #RewriteCond %{QUERY_STRING} ^p=(.*)
 #RewriteRule ^/?product\.php$ http://website.com.au/product_%1.php? [L,R=301]
-RewriteRule ^admin/(.*)$ http://localhost/sfhati/?chng_tpl=login\&p=$1 
-RewriteRule ^admin$ http://localhost/sfhati/?chng_tpl=login
-RewriteRule ^admin/$ http://localhost/sfhati/?chng_tpl=login
+RewriteRule ^admin/(.*)$ http://localhost/sfhati/cms/sfhati/?chng_tpl=login\&p=$1 
+RewriteRule ^admin$ http://localhost/sfhati/cms/sfhati/?chng_tpl=login
+RewriteRule ^admin/$ http://localhost/sfhati/cms/sfhati/?chng_tpl=login
 
 
 
-ErrorDocument 404 http://localhost/sfhati/?id=error404
+ErrorDocument 404 http://localhost/sfhati/cms/sfhati/?id=error404
 
 RewriteCond %{REQUEST_FILENAME} !-f 
 RewriteCond %{REQUEST_URI} \.(gif|jpg|jpeg|png)$ 
