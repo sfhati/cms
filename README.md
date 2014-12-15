@@ -16,17 +16,6 @@ Install
 3. create mysql database
 4. upload sfhati.sql by import in phpmyadmin 
 5. edit conf.php file and set your database name and password 
-6. goto http://localhost/sfhati/cms/sfhati/ 
-
-Note
-====
-
-1. if you wont login to controlpanel goto http://localhost/sfhati/cms/sfhati/admin
-user name : admin 
-password : 123456
-2. if you dont see login area goto http://localhost/sfhati/cms/sfhati/?shng_tpl=login
-or you can active .htaccess. 
-
 
     `#Domain name here`
 
@@ -43,3 +32,15 @@ or you can active .htaccess.
     `define('db_user', 'root');`
 
     `define('db_pass', '');`
+
+6. goto http://localhost/sfhati/cms/sfhati/ 
+
+Note
+====
+
+1. if you wont login to controlpanel goto http://localhost/sfhati/cms/sfhati/admin
+user name : admin 
+password : 123456
+2. if you dont see login area goto http://localhost/sfhati/cms/sfhati/?shng_tpl=login
+or you can active .htaccess. 
+
